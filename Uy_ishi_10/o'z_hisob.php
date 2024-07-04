@@ -118,6 +118,7 @@ class PersonalWorkOffTracker {
             echo '<tr><td colspan="5" class="text-end">' . $remaining_time_message . '</td></tr>';
             echo '</tbody>';
             echo '</table>';
+            echo '<input type="hidden" name="export_csv" value="0" id="export_csv_input">';
             echo '<button type="submit" name="update" class="btn btn-primary">Yangilash</button>';
             echo '<button type="button" class="btn btn-secondary" onclick="exportCSV()">CSV\'ni eksport qilish</button>';
             echo '</form>';
@@ -145,7 +146,10 @@ class PersonalWorkOffTracker {
         $result = $this->conn->query($sql);
         $filename = 'report.csv';
 
-        $file = fopen($filename, 'w');
+        header('Content-Type: text/csv');
+        header('Content-Disposition: attachment;filename=' . $filename);
+
+        $file = fopen('php://output', 'w');
         fputcsv($file, array('ID', 'Yetkazilgan vaqti', 'Chiqib ketgan vaqti', 'Kerakli ish qilish', 'Ishlangan'));
 
         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
@@ -153,7 +157,7 @@ class PersonalWorkOffTracker {
         }
 
         fclose($file);
-        echo '<p class="text-success">Report exported as ' . $filename . '</p>';
+        exit();
     }
 }
 
@@ -195,7 +199,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             document.getElementById('confirmButton').value = id;
         }
         function exportCSV() {
-            document.getElementById('recordForm').action = '';
+            document.getElementById('export_csv_input').value = 1;
             document.getElementById('recordForm').submit();
         }
     </script>
