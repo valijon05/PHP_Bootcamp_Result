@@ -1,0 +1,11 @@
+{
+  "require": {
+    "guzzlehttp/guzzle": "^7.0",
+    "ext-pdo": "*"
+  },
+  "autoload": {
+    "classmap": [
+      "."
+    ]
+  }
+}
