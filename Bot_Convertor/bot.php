@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 $currency = new Currency();
 $bot      = new BotHandler();
-
+//Valijon
 if (isset($update->message)) {
     $message          = $update->message;
     $chat_id          = $message->chat->id;
