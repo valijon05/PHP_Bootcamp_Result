@@ -1,10 +1,37 @@
 <?php
-
+    declare(strict_types=1);
+    require 'bot.php';  
     require 'DB.php';
     require 'Todo.php';
     $database = DB::connect();
     $todo = new Todo($database);
     $todos = $todo->getTodos();
+    
+
+    use GuzzleHttp\Client;
+    
+
+    $bot = new Bot();
+
+    if(isset($update->$message)){
+        $message = $update->$message;
+        $chatId =$message->chat->id;
+        $text = $message->text;
+        $bot->handleStartCommand($chatId);
+
+        if($message->text ==='/start'){
+            $client->post('sendMessage',[
+                'from_params'=> [
+                    'chat_id' => $chat_id,
+                    'text' => 'Qonday ey',
+                ]
+                ]);
+        }
+    }
+
+
+
+
 
 ?>
 
