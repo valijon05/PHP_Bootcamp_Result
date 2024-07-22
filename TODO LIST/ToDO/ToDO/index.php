@@ -3,6 +3,7 @@
     require 'bot.php';  
     require 'DB.php';
     require 'Todo.php';
+    require 'toggle.php';
     $database = DB::connect();
     $todo = new Todo($database);
     $todos = $todo->getTodos();
@@ -31,8 +32,6 @@
 
 
 
-
-
 ?>
 
 <!DOCTYPE html>
@@ -43,6 +42,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <title>To-do List</title>
     <style>
+
 
         .completed {
             text-decoration: line-through;

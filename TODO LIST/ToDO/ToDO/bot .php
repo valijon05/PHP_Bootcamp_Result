@@ -1,7 +1,6 @@
 <?php
 
 
-
 class Bot
     {
         const string TOKEN = "7422856223:AAFzdJHamkQgtJg2lP6MOnsMrEWgE84Onb0";
