@@ -9,7 +9,7 @@ require 'src/User.php';
 
 $user = new User();
 
-$token = "7411716108:AAHie4mj97bbY6VWcUppRULe_aCOI7fCysY";
+$token = "7422856223:AAFzdJHamkQgtJg2lP6MOnsMrEWgE84Onb0";
 $tgApi = "https://api.telegram.org/bot$token/";
 
 $client = new Client(['base_uri' => $tgApi]);

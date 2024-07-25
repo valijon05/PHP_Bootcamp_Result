@@ -1,0 +1,20 @@
+{
+    "name": "developer/to-do",
+    "autoload": {
+        "psr-4": {
+            "Developer\\ToDo\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "valijon",
+            "email": "valijoneshmamatov98@gmail.com"
+        }
+    ],
+    "require": {},
+    "   autoload":{
+        "classmap":[
+            "."
+        ]
+    }
+}
