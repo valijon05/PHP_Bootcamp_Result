@@ -15,11 +15,20 @@ class Router{
 
     public function isApiCall(){
 
-        $uri = $_SERVER
-
-        if($isset($this->updates)){
-            return 'api request';
-        }
+        $uri = parse_url($_SERVER['REQUEST_URI'],PHP_URL_PATH); 
+        $path = explode('/',$uri);
+        return array_search('api',$path);
+        
     }
+
+    public function getResourceId(){
+
+        $uri        = parse_url($_SERVER['REQUEST_URI'],PHP_URL_PATH); 
+        $path       = explode('/',$uri);
+        $resourceId = $path[count($path)-1];
+        return is_numeric($resourceId) ? $resourceId : false;        
+    }
+
+    
 
 }
