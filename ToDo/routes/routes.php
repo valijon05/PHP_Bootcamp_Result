@@ -5,11 +5,10 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 $router = new Router();
+
+
 if($router->isApiCall()) {
-
-
     if($_SERVER['REQUEST_METHOD'] == 'GET') {
-
         if($router->getResourceId()){
         echo 'Task'.$router->getResourceId();
         return;
