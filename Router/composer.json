@@ -1,0 +1,15 @@
+{
+    "name": "developer/router",
+    "authors":[ 
+        {
+            "name": "valijon",
+            "email": "valijoneshmamatov98@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload":{
+        "classmap":[
+            "."
+        ]
+    }
+}
