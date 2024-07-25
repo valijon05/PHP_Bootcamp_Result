@@ -21,7 +21,7 @@ class Router{
         
     }
 
-    public function getResourceId(){
+    public function getResourceId():float|false|int|string{
 
         $uri        = parse_url($_SERVER['REQUEST_URI'],PHP_URL_PATH); 
         $path       = explode('/',$uri);
@@ -29,6 +29,15 @@ class Router{
         return is_numeric($resourceId) ? $resourceId : false;        
     }
 
-    
+    public function isTelegramUpdate():bool{
+
+        if(isset($this->updates) && isset($this->update->update_id)){
+            return true;
+        }
+
+        return false;
+    }
+
+
 
 }
