@@ -40,5 +40,48 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'PATCH') {
-    echo 'Resource '.$router->getResourceId().' updated';
+    if(!isset($router->getUpdate()->todoId)){
+        $router->sendResponse([
+            'message' => 'todoId is not found',
+            'code' => 403
+        ]);
+        return;
+    
+    }
+
+    $task_id = $router->getUpdate()->todoId;
+    $single_task = $task->getTask($task_id);
+    if($single_task->status){
+        $task->uncompleted($task_id);
+        $router->sendResponse([
+            'message' => 'task is uncompleted',
+            'code' => 200
+        ]);
+        return;
+    }
+
+    $task->complete($task_id);
+    $router->sendResponse([
+        'message' => 'task is completed',
+        'code' => 200
+    ]);
+    return;
+}
+
+if ($_SERVER['REQUEST_METHOD'] == 'DELETE') {
+    if(!isset($router->getUpdate()->todoId)){
+        $router->sendResponse([
+            'message' => 'todoId is not found',
+            'code' => 403
+        ]);
+        return;
+    }
+
+    $task_id = $router->getUpdate()->todoId;
+    $task->delete($task_id);
+    $router->sendResponse([
+        'message' => 'task  deleted',
+        'code' => 200
+    ]);
+    return;
 }
