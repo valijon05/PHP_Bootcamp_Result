@@ -1,0 +1,15 @@
+{
+    "name": "developer/todo_app",
+    "autoload": {
+        "psr-4": {
+            "Developer\\TodoApp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "valijon",
+            "email": "valijoneshmamatov98@gmail.com"
+        }
+    ],
+    "require": {}
+}
