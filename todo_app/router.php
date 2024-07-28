@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-$task   = new Task();
 $router = new Router();
 
 if ($router->isApiCall()) {

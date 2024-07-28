@@ -1,15 +1,23 @@
 {
-    "name": "developer/todo_app",
-    "autoload": {
-        "psr-4": {
-            "Developer\\TodoApp\\": "src/"
-        }
-    },
-    "authors": [
-        {
-            "name": "valijon",
-            "email": "valijoneshmamatov98@gmail.com"
-        }
-    ],
-    "require": {}
+  "name": "rustam/todo-app",
+  "description": "The best todo app ever",
+  "autoload": {
+    "classmap": [
+      "."
+    ]
+  },
+  "authors": [
+    {
+      "name": "Rustam",
+      "email": "rustamergashev.sp@gmail.com"
+    }
+  ],
+  "require": {
+    "ext-pdo": "*",
+    "guzzlehttp/guzzle": "^7.8",
+    "vlucas/phpdotenv": "^5.6"
+  },
+  "require-dev": {
+    "buggregator/trap": "^1.10"
+  }
 }

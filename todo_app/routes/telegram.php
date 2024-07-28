@@ -2,14 +2,11 @@
 
 declare(strict_types=1);
 
-require 'config.php';
-
-$bot = new Bot($token);
-
+$bot    = new Bot($_ENV['TOKEN']);
 $router = new Router();
 
-if (isset($router->getUpdate()->message)) {
-    $message = $router->getUpdate()->message;
+if (isset($router->getUpdates()->message)) {
+    $message = $router->getUpdates()->message;
     $chatId  = $message->chat->id;
     $text    = $message->text;
 
@@ -31,8 +28,8 @@ if (isset($router->getUpdate()->message)) {
     $bot->addTask($chatId, $text);
 }
 
-if (isset($router->getUpdate()->callback_query)) {
-    $callbackQuery = $router->getUpdate()->callback_query;
+if (isset($router->getUpdates()->callback_query)) {
+    $callbackQuery = $router->getUpdates()->callback_query;
     $callbackData  = (int) $callbackQuery->data;
     $chatId        = $callbackQuery->message->chat->id;
     $messageId     = $callbackQuery->message->message_id;
