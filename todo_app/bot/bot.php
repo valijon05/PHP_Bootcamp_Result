@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-$bot = new Bot();
+$bot = new Bot("7422856223:AAFzdJHamkQgtJg2lP6MOnsMrEWgE84Onb0");
 
 if (isset($update->message)) {
     $message = $update->message;
